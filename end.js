@@ -3,7 +3,8 @@ new Vue({
   data: {
     schoolStatic: [],
     schoolRank: [],
-    schoolRatio: []
+    schoolRatio: [],
+    other: ''
   },
   mounted() {
     this.getSchool();
@@ -46,30 +47,56 @@ new Vue({
       })
       console.log(sn);
       console.log(rank);
+
       let firstidx = rank.indexOf(Math.max(...rank));
-      console.log(firstidx);
+      // console.log(firstidx);
       this.schoolRank.push(sn[firstidx]);
-      this.schoolRatio.push(`${Math.round(100*(rank[firstidx]/len))}%`);
+      let first = Math.round(100*(rank[firstidx]/len));
+      this.schoolRatio.push(`${first}%`);
       sn.splice(firstidx, 1);
       rank.splice(firstidx, 1);
-      console.log(sn);
-      console.log(rank);
+      // console.log(sn);
+      // console.log(rank);
+
       let secondidx = rank.indexOf(Math.max(...rank));
-      console.log(secondidx);
+      // console.log(secondidx);
       this.schoolRank.push(sn[secondidx]);
-      this.schoolRatio.push(`${Math.round(100*(rank[secondidx]/len))}%`);
+      let second = Math.round(100*(rank[secondidx]/len));
+      this.schoolRatio.push(`${second}%`);
       sn.splice(secondidx, 1);
       rank.splice(secondidx, 1);
-      console.log(sn);
-      console.log(rank);
+      // console.log(sn);
+      // console.log(rank);
+
       let thirdidx = rank.indexOf(Math.max(...rank));
-      console.log(thirdidx);
+      // console.log(thirdidx);
       this.schoolRank.push(sn[thirdidx]);
-      this.schoolRatio.push(`${Math.round(100*(rank[thirdidx]/len))}%`);
+      let third = Math.round(100*(rank[thirdidx]/len));
+      this.schoolRatio.push(`${third}%`);
       sn.splice(thirdidx, 1);
       rank.splice(thirdidx, 1);
-      console.log(sn);
-      console.log(rank);
+      // console.log(sn);
+      // console.log(rank);
+
+      let forthidx = rank.indexOf(Math.max(...rank));
+      // console.log(thirdidx);
+      this.schoolRank.push(sn[forthidx]);
+      let forth = Math.round(100*(rank[forthidx]/len));
+      this.schoolRatio.push(`${forth}%`);
+      sn.splice(forthidx, 1);
+      rank.splice(forthidx, 1);
+      // console.log(sn);
+      // console.log(rank);
+
+      let fifthidx = rank.indexOf(Math.max(...rank));
+      // console.log(thirdidx);
+      this.schoolRank.push(sn[fifthidx]);
+      let fifth = Math.round(100*(rank[fifthidx]/len));
+      this.schoolRatio.push(`${fifth}%`);
+      sn.splice(fifthidx, 1);
+      rank.splice(fifthidx, 1);
+      // console.log(sn);
+      // console.log(rank);
     }
   },
 });
