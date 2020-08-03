@@ -97,6 +97,7 @@ new Vue({
       rank.splice(fifthidx, 1);
       // console.log(sn);
       // console.log(rank);
+      this.other = 100 - first - second - third - forth - fifth;
     }
   },
 });
