@@ -38,7 +38,7 @@
   <div id="app">
     <div class="container">
       <h1 class="text-center">
-        制服大調查 {{tempcity}}
+        制服大調查
       </h1>
       <form>
         <div class="form-group">
@@ -62,7 +62,7 @@
             <option>5</option> -->
           </select>
         </div>
-        <center><button class="btn btn-info" @click.prevent="submits">確認</button></center>
+        <center><button class="btn btn-info" :disabled="isdis" @click.prevent="submits">確認</button></center>
         <!-- <center><label for="">謝謝您的回覆!</label></center> -->
       </form>
     </div>

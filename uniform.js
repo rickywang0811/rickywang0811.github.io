@@ -5,16 +5,22 @@ new Vue({
   },
   methods: {
     submits () {
-      console.log(this.tempschool);
-      const body = { name: this.tempcity + this.tempschool };
-      console.log(body);
-      const api = 'https://riceballweb.herokuapp.com/postonesn';
-      axios.post(api, body).then(rsp => {
-        console.log(rsp);
-        window.location = 'end.html';
-      }).catch(e => {
-        console.log(e);
-      })
+      if (this.tempschool === "") {
+        alert('請選擇學校');
+        return;
+      } else {
+        console.log(this.tempschool);
+        this.isdis = true;
+        const body = { name: this.tempcity + this.tempschool };
+        console.log(body);
+        const api = 'https://riceballweb.herokuapp.com/postonesn';
+        axios.post(api, body).then(rsp => {
+          console.log(rsp);
+          window.location = 'end.html';
+        }).catch(e => {
+          console.log(e);
+        })
+      }
     },
     schoolFromCity (city) {
       switch (city) {
@@ -67,6 +73,7 @@ new Vue({
     }
   },
   data: {
+    isdis: false,
     tempcity: '',
     tempschool: '',
     city: [
