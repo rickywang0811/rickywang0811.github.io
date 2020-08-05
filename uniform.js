@@ -11,7 +11,7 @@ new Vue({
       } else {
         console.log(this.tempschool);
         this.isdis = true;
-        const body = { name: this.tempcity + this.tempschool };
+        const body = { name: this.tempcity + this.tempschool, ig: this.tempigacc};
         console.log(body);
         const api = 'https://riceballweb.herokuapp.com/postonesn';
         axios.post(api, body).then(rsp => {
@@ -74,6 +74,7 @@ new Vue({
   },
   data: {
     isdis: false,
+    tempigacc: '',
     tempcity: '',
     tempschool: '',
     city: [

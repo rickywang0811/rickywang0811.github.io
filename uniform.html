@@ -37,9 +37,14 @@
 <body>
   <div id="app">
     <div class="container">
-      <h1 class="text-center">
+      <h1 class="text-center my-3">
         制服大調查
       </h1>
+      <div class="form-group">
+        <label for="exampleInputEmail1">IG 帳號</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="請填入您的ig帳號" v-model="tempigacc">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
       <form>
         <div class="form-group">
           <label for="exampleFormControlSelect1" class="fontstyle">請選擇縣市</label>
