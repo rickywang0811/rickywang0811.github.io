@@ -1,3 +1,6 @@
+Vue.use(VueLoading);
+Vue.component('loading', VueLoading);
+
 new Vue({
   el: '#app',
   mounted() {
@@ -9,6 +12,7 @@ new Vue({
         alert('請選擇學校');
         return;
       } else {
+        this.isLoading = true;
         console.log(this.tempschool);
         this.isdis = true;
         const body = { name: this.tempcity + this.tempschool, ig: this.tempigacc};
@@ -16,8 +20,10 @@ new Vue({
         const api = 'https://riceballweb.herokuapp.com/postonesn';
         axios.post(api, body).then(rsp => {
           console.log(rsp);
+          this.isLoading = false;
           window.location = 'end.html';
         }).catch(e => {
+          this.isLoading = false;
           console.log(e);
         })
       }
@@ -73,6 +79,7 @@ new Vue({
     }
   },
   data: {
+    isLoading: false,
     isdis: false,
     tempigacc: '',
     tempcity: '',
