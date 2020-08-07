@@ -82,8 +82,8 @@ new Vue({
     isLoading: false,
     isdis: false,
     tempigacc: '',
-    tempcity: '',
-    tempschool: '',
+    tempcity: '新北市',
+    tempschool: '市立中和高中',
     city: [
       '新北市',
       '台北市',
@@ -109,6 +109,7 @@ new Vue({
     ],
     school: {
       newtaipei: [
+        '市立中和高中',
         '國立華僑高級中等學校',
         '私立淡江高中',
         '私立康橋高中',
@@ -144,7 +145,6 @@ new Vue({
         '市立泰山高中',
         '市立板橋高中',
         '市立新店高中',
-        '市立中和高中',
         '市立新莊高中',
         '市立新北高中',
         '市立林口高中',
