@@ -52,14 +52,14 @@ new Vue({
           rank[idx] = 1;
         }
       })
-      console.log(sn);
-      console.log(rank);
+      // console.log(sn);
+      // console.log(rank);
 
       const len = sn.length;
       for (let i = 0;i < len; i++) {
-        console.log(`i = ${i}`);
-        console.log(sn[i]);
-        console.log(`length = ${sn.length}`);
+        // console.log(`i = ${i}`);
+        // console.log(sn[i]);
+        // console.log(`length = ${sn.length}`);
         let idx = rank.indexOf(Math.max(...rank));
         this.schoolRank.push({
           name: sn[idx],
@@ -68,9 +68,9 @@ new Vue({
         sn.splice(idx, 1);
         rank.splice(idx, 1);
       }
-      console.log(sn);
-      console.log(rank);
-      console.log(this.schoolRank);
+      // console.log(sn);
+      // console.log(rank);
+      // console.log(this.schoolRank);
     }
   },
 });
