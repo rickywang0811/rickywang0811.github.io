@@ -29,8 +29,10 @@ new Vue({
       }
     },
     schoolFromCity (city) {
+      this.tempschool = '請選擇學校';
       switch (city) {
         case '新北市':
+          this.tempschool = '請選擇學校';
           return this.school.newtaipei;
         case '台北市':
           return this.school.taipei;
@@ -71,8 +73,11 @@ new Vue({
         case '連江縣':
           return this.school.lienchiang;
         case '金門縣':
+          this.tempschool = this.school.kinmen[0];
           return this.school.kinmen;
         default:
+          // this.tempschool = this.school.newtaipei[0];
+          this.tempschool = '請先選擇城市';
           return ['請選擇您的城市'];
       }
       
@@ -82,8 +87,8 @@ new Vue({
     isLoading: false,
     isdis: false,
     tempigacc: '',
-    tempcity: '新北市',
-    tempschool: '市立中和高中',
+    tempcity: '請選擇城市',
+    tempschool: '請選擇學校',
     city: [
       '新北市',
       '台北市',

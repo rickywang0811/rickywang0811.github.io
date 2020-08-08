@@ -51,7 +51,7 @@
         <div class="form-group">
           <label for="exampleFormControlSelect1" class="fontstyle">請選擇縣市</label>
           <select class="form-control" id="exampleFormControlSelect1" v-model="tempcity">
-            <!-- <option>請選擇城市</option> -->
+            <option disabled>請選擇城市</option>
             <option v-for="item in city" :key="item">{{item}}</option>
             <!-- <option>2</option>
             <option>3</option>
@@ -62,6 +62,7 @@
         <div class="form-group">
           <label for="exampleFormControlSelect2" class="fontstyle">請選擇學校</label>
           <select class="form-control" id="exampleFormControlSelect2" v-model="tempschool">
+            <option disabled>請選擇學校</option>
             <option v-for="item in schoolFromCity(tempcity)">{{item}}</option>
             <!-- <option>2</option>
             <option>3</option>
