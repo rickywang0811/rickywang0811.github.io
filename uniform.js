@@ -8,7 +8,7 @@ new Vue({
   },
   methods: {
     submits () {
-      if (this.tempschool === ""|| this.tempschool === "請選擇學校") {
+      if (this.tempschool === ""|| this.tempschool === "請選擇學校" || this.tempigacc === "") {
         alert('請選擇學校');
         return;
       } else {
