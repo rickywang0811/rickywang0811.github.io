@@ -8,8 +8,12 @@ new Vue({
   },
   methods: {
     submits () {
-      if (this.tempschool === ""|| this.tempschool === "請選擇學校" || this.tempigacc === "") {
+      if (this.tempschool === ""|| this.tempschool === "請選擇學校") {
         alert('請選擇學校');
+        return;
+      }
+      else if (this.tempigacc === "") {
+        alert('請填入ig帳號呦');
         return;
       } else {
         this.isLoading = true;
