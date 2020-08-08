@@ -62,8 +62,8 @@
         <div class="form-group">
           <label for="exampleFormControlSelect2" class="fontstyle">請選擇學校</label>
           <select class="form-control" id="exampleFormControlSelect2" v-model="tempschool">
-            <option disabled>請選擇學校</option>
-            <option v-for="item in schoolFromCity(tempcity)">{{item}}</option>
+            <!-- <option disabled>請選擇學校</option> -->
+            <option v-for="(item, index) in schoolFromCity(tempcity)" :disabled="index === 0">{{item}}</option>
             <!-- <option>2</option>
             <option>3</option>
             <option>4</option>
