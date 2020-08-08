@@ -1,6 +1,10 @@
+Vue.use(VueLoading);
+Vue.component('loading', VueLoading);
+
 new Vue({
   el: '#app',
   data: {
+    isLoading: false,
     schoolStatic: [],
     schoolRank: [],
     schoolRatio: [],
@@ -11,6 +15,7 @@ new Vue({
   },
   methods: {
     getSchool () {
+      this.isLoading = true;
       const api = 'https://riceballweb.herokuapp.com/getallsn';
       axios.get(api).then(rsp => {
         const data = rsp.data;
@@ -23,8 +28,10 @@ new Vue({
         if (this.schoolStatic.length > 0) {
           this.rank(this.schoolStatic);
         }
+        this.isLoading = false;
       }).catch(e => {
         console.log(e);
+        this.isLoading = false;
       })
     },
     rank (arr) {
@@ -51,7 +58,8 @@ new Vue({
       let firstidx = rank.indexOf(Math.max(...rank));
       // console.log(firstidx);
       this.schoolRank.push(sn[firstidx]);
-      let first = Math.round(100*(rank[firstidx]/len));
+      let truefirst = 100*(rank[firstidx]/len);
+      let first = Math.round(truefirst);
       this.schoolRatio.push(`${first}%`);
       sn.splice(firstidx, 1);
       rank.splice(firstidx, 1);
@@ -61,7 +69,8 @@ new Vue({
       let secondidx = rank.indexOf(Math.max(...rank));
       // console.log(secondidx);
       this.schoolRank.push(sn[secondidx]);
-      let second = Math.round(100*(rank[secondidx]/len));
+      let truesecond = 100*(rank[secondidx]/len);
+      let second = Math.round(truesecond);
       this.schoolRatio.push(`${second}%`);
       sn.splice(secondidx, 1);
       rank.splice(secondidx, 1);
@@ -71,7 +80,8 @@ new Vue({
       let thirdidx = rank.indexOf(Math.max(...rank));
       // console.log(thirdidx);
       this.schoolRank.push(sn[thirdidx]);
-      let third = Math.round(100*(rank[thirdidx]/len));
+      let truethird = 100*(rank[thirdidx]/len);
+      let third = Math.round(truethird);
       this.schoolRatio.push(`${third}%`);
       sn.splice(thirdidx, 1);
       rank.splice(thirdidx, 1);
@@ -81,7 +91,8 @@ new Vue({
       let forthidx = rank.indexOf(Math.max(...rank));
       // console.log(thirdidx);
       this.schoolRank.push(sn[forthidx]);
-      let forth = Math.round(100*(rank[forthidx]/len));
+      let trueforth = 100*(rank[forthidx]/len);
+      let forth = Math.round(trueforth);
       this.schoolRatio.push(`${forth}%`);
       sn.splice(forthidx, 1);
       rank.splice(forthidx, 1);
@@ -91,13 +102,14 @@ new Vue({
       let fifthidx = rank.indexOf(Math.max(...rank));
       // console.log(thirdidx);
       this.schoolRank.push(sn[fifthidx]);
-      let fifth = Math.round(100*(rank[fifthidx]/len));
+      let truefifth = 100*(rank[fifthidx]/len);
+      let fifth = Math.round(truefifth);
       this.schoolRatio.push(`${fifth}%`);
       sn.splice(fifthidx, 1);
       rank.splice(fifthidx, 1);
       // console.log(sn);
       // console.log(rank);
-      this.other = 100 - first - second - third - forth - fifth;
+      this.other = Math.round(100 - truefirst - truesecond - truethird - trueforth - truefifth);
     }
   },
 });

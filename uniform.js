@@ -4,7 +4,6 @@ Vue.component('loading', VueLoading);
 new Vue({
   el: '#app',
   mounted() {
-    // this.tablett();
   },
   methods: {
     submits () {
@@ -33,55 +32,82 @@ new Vue({
       }
     },
     schoolFromCity (city) {
+      let finalcity = [];
+      console.log(this.tempschool);
       switch (city) {
         case '新北市':
-          return this.school.newtaipei;
-        case '台北市':
-          return this.school.taipei;
-        case '桃園市':
-          return this.school.taoyuan;
-        case '新竹縣':
-          return this.school.hsinchu;
-        case '新竹市':
-          return this.school.hsinchucity;
-        case '苗栗縣':
-          return this.school.miaoli;
-        case '台中市':
-          return this.school.taichung;
-        case '彰化縣':
-          return this.school.changhua;
-        case '雲林縣':
-          return this.school.yunlin;
-        case '嘉義縣':
-          return this.school.chiayi;
-        case '嘉義市':
-          return this.school.chiayicity;
-        case '台南市':
-          return this.school.tainan;
-        case '高雄市':
-          return this.school.kaohsiung;
-        case '基隆縣':
-          return this.school.keelung;
-        case '宜蘭縣':
-          return this.school.yilan;
-        case '花蓮縣':
-          return this.school.hualien;
-        case '台東縣':
-          return this.school.taitung;
-        case '屏東縣':
-          return this.school.pingtung;
-        case '澎湖縣':
-          return this.school.penghu;
-        case '連江縣':
-          return this.school.lienchiang;
-        case '金門縣':
-          return this.school.kinmen;
-        case '請選擇城市':
-          return ['請選擇學校'];
-        default:
+          finalcity = this.school.newtaipei;
           break;
+        case '台北市':
+          finalcity = this.school.taipei;
+          break;
+        case '桃園市':
+          finalcity = this.school.taoyuan;
+          break;
+        case '新竹縣':
+          finalcity = this.school.hsinchu;
+          break;
+        case '新竹市':
+          finalcity = this.school.hsinchucity;
+          break;
+        case '苗栗縣':
+          finalcity = this.school.miaoli;
+          break;
+        case '台中市':
+          finalcity = this.school.taichung;
+          break;
+        case '彰化縣':
+          finalcity = this.school.changhua;
+          break;
+        case '雲林縣':
+          finalcity = this.school.yunlin;
+          break;
+        case '嘉義縣':
+          finalcity = this.school.chiayi;
+          break;
+        case '嘉義市':
+          finalcity = this.school.chiayicity;
+          break;
+        case '台南市':
+          finalcity = this.school.tainan;
+          break;
+        case '高雄市':
+          finalcity = this.school.kaohsiung;
+          break;
+        case '基隆縣':
+          finalcity = this.school.keelung;
+          break;
+        case '宜蘭縣':
+          finalcity = this.school.yilan;
+          break;
+        case '花蓮縣':
+          finalcity = this.school.hualien;
+          break;
+        case '台東縣':
+          finalcity = this.school.taitung;
+          break;
+        case '屏東縣':
+          finalcity = this.school.pingtung;
+          break;
+        case '澎湖縣':
+          finalcity = this.school.penghu;
+          break;
+        case '連江縣':
+          finalcity = this.school.lienchiang;
+          break;
+        case '金門縣':
+          finalcity = this.school.kinmen;
+          break;
+        case '請選擇城市':
+          finalcity = ['請選擇學校'];
+          break;
+        default:
+          return;
       }
-      
+      if (!finalcity.includes(this.tempschool)) {
+        this.tempschool = finalcity[0];
+      }
+      return finalcity;
     }
   },
   data: {
