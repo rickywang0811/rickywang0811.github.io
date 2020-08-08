@@ -32,7 +32,6 @@ new Vue({
       this.tempschool = '請選擇學校';
       switch (city) {
         case '新北市':
-          this.tempschool = '請選擇學校';
           return this.school.newtaipei;
         case '台北市':
           return this.school.taipei;
@@ -97,7 +96,7 @@ new Vue({
       '新竹市',
       '苗栗縣',
       '台中市',
-      '彰化市',
+      '彰化縣',
       '雲林縣',
       '高雄市',
       '嘉義市',
