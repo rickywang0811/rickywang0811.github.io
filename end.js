@@ -115,8 +115,8 @@ new Vue({
       // console.log(sn);
       // console.log(rank);
       this.other = Math.round(100 - truefirst - truesecond - truethird - trueforth - truefifth);
-      this.other = `${this.other}%`
       if(isNaN(this.other)) { this.other = 0; };
+      this.other = `${this.other}%`;
     }
   },
 });
