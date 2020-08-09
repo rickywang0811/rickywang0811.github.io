@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>小本丸的制服作品集</title>
+    <!-- <link rel="canonical" href="https://letswritetw.github.io/letswrite-taiwan-map-basic/"/> -->
+    <!-- <link rel="shortcut icon" href=""/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+    <link rel="stylesheet" href="dist/augurio.css"/>
+    <!-- <link rel="stylesheet" href="dist/augurio-taiwan.min.css"/> -->
+    <!-- Google Tag Manager-->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PGQ9WQT');
+      
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="container" id="app">
+      <div class="taiwan-map" ref="map">
+        <div id="map">
+          <svg id="svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+      </div>
+      <div class="shop-list">
+        <h1>{{ h1 }}</h1>
+        <!-- <h2>{{ h2 }}</h2> -->
+        <div>
+          <h2 v-for="item in done[h1]" :key="item"><a :href="`./assets/school/${h1}/${item}.jpg`">{{item}}</a></h2>
+          <!-- <a :href="`./assets/school/${h1}/${item}`"><h2 v-for="item in done[h1]" :key="item">{{item}}</h2></a> -->
+          <h2 v-if="emptyCity()">小本丸會慢慢畫 近請期待 ^////^</h2>
+        </div>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <!-- <script src="dist/augurio-taiwan.min.js"></script> -->
+    <script src="dist/augurio-taiwan.js"></script>
+  </body>
+</html>
