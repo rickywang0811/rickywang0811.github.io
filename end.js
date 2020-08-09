@@ -60,6 +60,7 @@ new Vue({
       this.schoolRank.push(sn[firstidx]);
       let truefirst = 100*(rank[firstidx]/len);
       let first = Math.round(truefirst);
+      if (isNaN(first)) {first = 0};
       this.schoolRatio.push(`${first}%`);
       sn.splice(firstidx, 1);
       rank.splice(firstidx, 1);
@@ -71,6 +72,7 @@ new Vue({
       this.schoolRank.push(sn[secondidx]);
       let truesecond = 100*(rank[secondidx]/len);
       let second = Math.round(truesecond);
+      if (isNaN(second)) {second = 0};
       this.schoolRatio.push(`${second}%`);
       sn.splice(secondidx, 1);
       rank.splice(secondidx, 1);
@@ -82,6 +84,7 @@ new Vue({
       this.schoolRank.push(sn[thirdidx]);
       let truethird = 100*(rank[thirdidx]/len);
       let third = Math.round(truethird);
+      if (isNaN(third)) {third = 0};
       this.schoolRatio.push(`${third}%`);
       sn.splice(thirdidx, 1);
       rank.splice(thirdidx, 1);
@@ -93,6 +96,7 @@ new Vue({
       this.schoolRank.push(sn[forthidx]);
       let trueforth = 100*(rank[forthidx]/len);
       let forth = Math.round(trueforth);
+      if (isNaN(forth)) {forth = 0};
       this.schoolRatio.push(`${forth}%`);
       sn.splice(forthidx, 1);
       rank.splice(forthidx, 1);
@@ -104,12 +108,15 @@ new Vue({
       this.schoolRank.push(sn[fifthidx]);
       let truefifth = 100*(rank[fifthidx]/len);
       let fifth = Math.round(truefifth);
+      if (isNaN(fifth)) {fifth = 0};
       this.schoolRatio.push(`${fifth}%`);
       sn.splice(fifthidx, 1);
       rank.splice(fifthidx, 1);
       // console.log(sn);
       // console.log(rank);
       this.other = Math.round(100 - truefirst - truesecond - truethird - trueforth - truefifth);
+      this.other = `${this.other}%`
+      if(isNaN(this.other)) { this.other = 0; };
     }
   },
 });
