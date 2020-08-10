@@ -74,7 +74,7 @@ new Vue({
         case '高雄市':
           finalcity = this.school.kaohsiung;
           break;
-        case '基隆縣':
+        case '基隆市':
           finalcity = this.school.keelung;
           break;
         case '宜蘭縣':
@@ -131,7 +131,7 @@ new Vue({
       '嘉義縣',
       '台南市',
       '屏東縣',
-      '基隆縣',
+      '基隆市',
       '台東縣',
       '花蓮縣',
       '澎湖縣',
