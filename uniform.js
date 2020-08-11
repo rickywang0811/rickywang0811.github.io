@@ -28,6 +28,7 @@ new Vue({
         }).catch(e => {
           this.isLoading = false;
           console.log(e);
+          this.warnmsg = '抓到！請同學不要用相同帳號投票哦 ˊˇˋ+';
         })
       }
     },
@@ -111,6 +112,7 @@ new Vue({
     }
   },
   data: {
+    warnmsg: '',
     isLoading: false,
     isdis: false,
     tempigacc: '',
