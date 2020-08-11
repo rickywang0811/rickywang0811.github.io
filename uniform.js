@@ -53,6 +53,9 @@ new Vue({
         case '苗栗縣':
           finalcity = this.school.miaoli;
           break;
+        case '南投縣':
+          finalcity = this.school.nantou;
+          break;
         case '台中市':
           finalcity = this.school.taichung;
           break;
