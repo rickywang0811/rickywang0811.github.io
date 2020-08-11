@@ -54,6 +54,9 @@ new Vue({
         case '苗栗縣':
           finalcity = this.school.miaoli;
           break;
+        case '南投縣':
+          finalcity = this.school.nantou;
+          break;
         case '台中市':
           finalcity = this.school.taichung;
           break;
@@ -126,6 +129,7 @@ new Vue({
       '新竹市',
       '苗栗縣',
       '台中市',
+      '南投縣',
       '彰化縣',
       '雲林縣',
       '高雄市',
@@ -276,6 +280,7 @@ new Vue({
         '私立惇敘工商',
         '市立復興高中',
         '市立中正高中',
+        '國立臺灣戲曲學院附設高職部'
       ],
       taoyuan: [
         '請選擇學校',
@@ -417,6 +422,7 @@ new Vue({
         '私立慈幼工商',
         '市立南寧高中',
         '市立土城高中',
+        '國立成功大學附設高工進修學校'
       ],
       kaohsiung: [
         '請選擇學校',
@@ -672,6 +678,8 @@ new Vue({
         '私立育仁高中',
         '私立公東高工',
         '縣立蘭嶼高中',
+        '國立臺東專科學校附設高職部',
+        '國立臺東專科學校附設高級農工職業進修學校'
       ],
       hualien: [
         '請選擇學校',
