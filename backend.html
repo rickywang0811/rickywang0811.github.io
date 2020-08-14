@@ -18,7 +18,7 @@ body {
 }
 
 .tableclass {
-  width: 550px;
+  width: 100%;
 }
 
 .container {
@@ -32,8 +32,9 @@ body {
 <body>
   <div id="app">
     <h1 class="text-center">
-      學校調查詳細排名
+      本丸的後台系統
     </h1>
+    <center><button class="btn btn-info" style="margin-bottom: 5px;" @click="postDoneSchool">更新</button></center>
     <div class="container">
         <loading :active.sync="isLoading" loader="bars"></loading>
         
@@ -44,6 +45,8 @@ body {
               <th>學校</th>
               <th>票數</th>
               <th>完成</th>
+              <!-- <th>時間</th> -->
+              <th>圖片連結</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +54,9 @@ body {
               <td>{{index+1}}  <i class="fas fa-crown" v-if="index < 3" style="color: #FFD700;"></i></td>
               <td>{{item.name}}</td>
               <td>{{item.vote}}</td>
-              <td><i class="fab fa-angellist"></i></td>
+              <td><center><input class="form-check-input" type="checkbox" v-model="item.done"></center></i></td>
+              <!-- <td><input type="date" :disabled="true"></td> -->
+              <td><input type="text" v-model="item.link" :disabled="!item.done"></td>
             </tr>
           </tbody>
         </table>
@@ -69,6 +74,6 @@ body {
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
-  <script src="./detailRank.js"></script>
+  <script src="./backend.js"></script>
 </body>
 </html>
