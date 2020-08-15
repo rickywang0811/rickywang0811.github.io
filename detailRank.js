@@ -7,6 +7,8 @@ new Vue({
     isLoading: false,
     schoolStatic: [],
     schoolRank: [],
+    schoolDone: [],
+    schoolLink: [],
     // schoolRatio: [],
     other: ''
   },
@@ -14,6 +16,27 @@ new Vue({
     this.getSchool();
   },
   methods: {
+    getDoneSchool () {
+      return new Promise((resolve, reject) => {
+        const api = 'https://riceballweb.herokuapp.com/getdistinct';
+        axios.get(api).then(rsp => {
+          const data = rsp.data;
+          console.log(JSON.stringify(data));
+          data.forEach(el => {
+            // let temp = el.sn;
+            this.schoolDone.push(el.sn);
+            // this.schoolDone.push();
+            this.schoolLink.push(el.link);
+          });
+          console.log(this.schoolDone);
+          resolve();
+          
+        }).catch(e => {
+          console.log(e);
+          reject(e);
+        })
+      });
+    },
     getSchool () {
       this.isLoading = true;
       const api = 'https://riceballweb.herokuapp.com/getallsn';
@@ -26,7 +49,11 @@ new Vue({
         });
         // console.log(this.schoolStatic.sort());
         if (this.schoolStatic.length > 0) {
-          this.rank(this.schoolStatic);
+          this.getDoneSchool().then(() => {
+            this.rank(this.schoolStatic);
+          }).catch(err => {
+            console.log(err);
+          })
         }
         this.isLoading = false;
       }).catch(e => {
@@ -61,9 +88,22 @@ new Vue({
         // console.log(sn[i]);
         // console.log(`length = ${sn.length}`);
         let idx = rank.indexOf(Math.max(...rank));
+        let done = false;
+        let link = '';
+        // console.log(sn[idx]);
+        if(this.schoolDone.includes(sn[idx])) {
+          console.log('Done');
+          done = true;
+        }
+        if(done === true) {
+          let urlidx = this.schoolDone.indexOf(sn[idx]);
+          link = this.schoolLink[urlidx];
+        }
         this.schoolRank.push({
           name: sn[idx],
-          vote: rank[idx]
+          vote: rank[idx],
+          done: done,
+          link: link
         });
         sn.splice(idx, 1);
         rank.splice(idx, 1);
