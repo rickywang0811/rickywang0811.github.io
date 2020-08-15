@@ -9,6 +9,12 @@ new Vue({
     schoolRank: [],
     schoolDone: [],
     schoolLink: [],
+    tempPicUrl: 'https://imgur.com/CULu0I4',
+    topthree: [
+      {color: '#FFD700'},
+      {color: '#A9A9A9'},
+      {color: '#B87333'},
+    ],
     // schoolRatio: [],
     other: ''
   },
@@ -16,6 +22,10 @@ new Vue({
     this.getSchool();
   },
   methods: {
+    getImgUrl (url) {
+      this.tempPicUrl = url;
+      $('#productPicModal').modal('show');
+    },
     getDoneSchool () {
       return new Promise((resolve, reject) => {
         const api = 'https://riceballweb.herokuapp.com/getdistinct';
