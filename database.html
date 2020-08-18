@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>小本丸的學校詳細排名</title>
+  <title>小本丸的抓鬼系統</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@ body {
 }
 
 .tableclass {
-  width: 100%;
+  width: 50%;
 }
 
 .container {
@@ -28,12 +28,14 @@ body {
 }
 
 input {
-  /* width: 250px; */
+  width: 250px;
   display: inline-block;
 }
 
-.textclass {
-  width: 100%;
+.inputClass {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
 }
 
 .fixbtn {
@@ -43,37 +45,38 @@ input {
   /* width: 200px; */
 }
 
+/* tr {
+   line-height: 25px;
+   min-height: 25px;
+   height: 25px;
+} */
+
 
 </style>
 <body>
   <div id="app">
     <h1 class="text-center">
-      本丸的後台系統
+      本丸的抓鬼系統
     </h1>
-    <a class="fixbtn" href="database.html">資料庫查詢</a>
-    <center><button class="btn btn-info" style="margin-bottom: 5px;" @click="postDoneSchool">更新</button></center>
+    <a class="fixbtn" href="backend.html">排名和已完成紀錄</a>
+    <div class="inputClass">
+      <input type="text" class="textclass" v-model="selected" placeholder="輸入高中名稱">
+      <button class="btn btn-info mx-1" @click="postSchool">送出</button>
+    </div>
     <div class="container">
         <loading :active.sync="isLoading" loader="bars"></loading>
         
         <table class="table tableclass table-striped">
           <thead class="thead-dark">
             <tr>
-              <th style="width: 80px;">名次</th>
-              <th>學校</th>
-              <th>票數</th>
-              <th>完成</th>
-              <!-- <th>時間</th> -->
-              <th>圖片連結</th>
+              <th>id</th>
+              <th>IG</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in schoolRank" :key="item.name">
-              <td>{{index+1}}  <i class="fas fa-crown" v-if="index < 3" style="color: #FFD700;"></i></td>
-              <td>{{item.name}}</td>
-              <td>{{item.vote}}</td>
-              <td><center><input class="form-check-input" type="checkbox" v-model="item.done"></center></i></td>
-              <!-- <td><input type="date" :disabled="true"></td> -->
-              <td><input type="text" class="textclass" v-model="item.link" :disabled="!item.done"></td>
+            <tr v-for="item in igArr" :key="item.name">
+              <td>{{item.id}}</td>
+              <td>{{item.igId}}</td>
             </tr>
           </tbody>
         </table>
@@ -91,6 +94,6 @@ input {
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3"></script>
-  <script src="./backend.js"></script>
+  <script src="./database.js"></script>
 </body>
 </html>
