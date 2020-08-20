@@ -69,14 +69,16 @@ input {
         <table class="table tableclass table-striped">
           <thead class="thead-dark">
             <tr>
-              <th>id</th>
-              <th>IG</th>
+              <th style="width: 100px;">id</th>
+              <th style="width: 300px;">IG</th>
+              <th style="width: 80px;">Del</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="item in igArr" :key="item.name">
               <td>{{item.id}}</td>
               <td>{{item.igId}}</td>
+              <td><button @click="delIgId(item.id)"><i class="far fa-trash-alt"></i></button></td>
             </tr>
           </tbody>
         </table>
